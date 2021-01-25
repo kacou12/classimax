@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ * Route testing Classimax
+ */
+
+Route::get('login', function () {
+    return view('classimax.login');
+});
+
+
+Route::get('register', function () {
+    return view('classimax.register');
+});
+Route::get('dashboard', function () {
+    return view('classimax.dashboard');
+});
