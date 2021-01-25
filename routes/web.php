@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +22,23 @@ Route::get('/', function () {
  * Route testing Classimax
  */
 
-Route::get('login', function () {
-    return view('classimax.login');
-});
-
-
-Route::get('register', function () {
-    return view('classimax.register');
-});
+//Route::get('login', function () {
+//    return view('classimax.login');
+//});
+//
+//
+//Route::get('register', function () {
+//    return view('classimax.register');
+//});
 Route::get('dashboard', function () {
     return view('classimax.dashboard');
+})->middleware('auth');
+
+Route::get('home', function () {
+    return view('home');
+})->middleware('auth')->name('home');
+
+Route::get('logout', function(){
+    Auth::logout();
+    return redirect()->back();
 })->middleware('auth');

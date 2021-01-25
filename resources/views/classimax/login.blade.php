@@ -119,16 +119,31 @@
             <div class="col-lg-5 col-md-8 align-item-center">
                 <div class="border">
                     <h3 class="bg-gray p-4">Login Now</h3>
-                    <form action="#" method="POST">
+                    <form action="login" method="POST">
                       @csrf
                         <fieldset class="p-4">
-                            <input type="text" placeholder="Nom d'utilisateur" name="name" class="border p-3 w-100 my-2">
-                            <input type="password" placeholder="Mot de passe"  name="password" class="border p-3 w-100 my-2">
+                              {{-- name --}}
+                              <input type="text"  placeholder="Nom d'utilisateur*" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif val1">
+                              @error('name')
+                                <span class="invalid-feedback mb-4" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                              @enderror
+
+                              {{-- password --}}
+                              <input type="password" placeholder="Mot de passe*" name="password" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif val2">
+                              @error('password')
+                                <span class="invalid-feedback mb-4" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                              @enderror
+
                             <div class="loggedin-forgot">
                                     <input type="checkbox" id="keep-me-logged-in">
                                     <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
                             </div>
-                            <button type="submit" class="d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3">Log in</button>
+                            {{-- d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold --}}
+                            <button type="submit" class="btn btn-primary mt-3 sendButton">Log in</button>
                             <a class="mt-3 d-block  text-primary" href="#">Forget Password?</a>
                             <a class="mt-3 d-inline-block text-primary" href="register.html">Register Now</a>
                         </fieldset>
@@ -257,7 +272,39 @@
 <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places') }}"></script>
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+<script>
+    $('.sendButton').attr('disabled', true);
+    $('.sendButton').css('cursor', 'not-allowed');
 
+
+    $(".val1").keydown(function(event) {
+            validateInputs();
+        });
+ 
+    $(".val2").keydown(function(event) {
+        validateInputs();
+    });
+ 
+    function validateInputs(){
+        var disableButton = true;
+        var cursor = 'not-allowed';
+ 
+        var val1 = $(".val1").val();
+        var val2 = $(".val2").val();
+ 
+        if(val1.length >= 3 && val2.length >= 8 ){          
+            disableButton = false;
+            cursor = "pointer";
+        }else{
+          disableButton = true;
+          cursor = 'not-allowed';
+        }
+ 
+        $('.sendButton').attr('disabled', disableButton);
+        $('.sendButton').css('cursor', cursor);
+    }
+
+</script>
 </body>
 
 </html>

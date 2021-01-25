@@ -124,42 +124,42 @@
                           @csrf
                             <fieldset class="p-4">
                               {{-- name --}}
-                                <input type="text" placeholder="Nom d'utilisateur*" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                <input type="text" placeholder="Nom d'utilisateur*" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif name">
                                 @error('name')
-                                  <span class="invalid-feedback" role="alert">
+                                  <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
 
                                 {{-- email --}}
-                                <input type="email" placeholder="Email*" name="email" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                <input type="email" placeholder="Email*" name="email" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif email">
                                 @error('email')
-                                  <span class="invalid-feedback" role="alert">
+                                  <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
 
                                 {{-- password --}}
-                                <input type="password" placeholder="Mot de passe*" name="password" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                <input type="password" placeholder="Mot de passe*" name="password" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif password">
                                 @error('password')
-                                  <span class="invalid-feedback" role="alert">
+                                  <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
 
                                 {{-- password_confirmation --}}
-                                <input type="password" placeholder="Confirmation du mot de passe*" name="password_confirmation" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
-                                @error('password_confirmation')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                              @enderror
+                                <input type="password" placeholder="Confirmation du mot de passe*" name="password_confirmation" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif password_confirmation">
+                                @error('password')
+                                  <span class="invalid-feedback mb-4" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
 
                                 {{-- <div class="loggedin-forgot d-inline-flex my-3">
                                         <input type="checkbox" id="registering" class="mt-1">
                                         <label for="registering" class="px-2">By registering, you accept our <a class="text-primary font-weight-bold" href="terms-condition.html">Terms & Conditions</a></label>
                                 </div> --}}
-                                <button type="submit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Register Now</button>
+                                <button type="submit" class="btn btn-primary mt-3 sendButton  ">Register Now</button>
                             </fieldset>
                         </form>
                     </div>
@@ -284,6 +284,48 @@
 <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places') }}"></script>
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+
+<script>
+      $('.sendButton').attr('disabled', true);
+    $('.sendButton').css('cursor', 'not-allowed');
+
+
+    $(".name").focus(function(event) {
+            validateInputs();
+        });
+ 
+    $(".password").focus(function(event) {
+        validateInputs();
+    });
+
+    
+    $(".password_confirmation").focus(function(event) {
+        validateInputs();
+    });
+
+
+    function validateInputs(){
+        var disableButton = true;
+        var cursor = 'not-allowed';
+ 
+        var name = $(".name").val();
+        var password = $(".password").val();
+        var password_confirmation = $(".password_confirmation").val();
+
+
+ 
+        if(name.length >= 3 && password.length >= 8 && password ==  password_confirmation ){          
+            disableButton = false;
+            cursor = "pointer";
+        }else{
+          disableButton = true;
+          cursor = 'not-allowed';
+        }
+ 
+        $('.sendButton').attr('disabled', disableButton);
+        $('.sendButton').css('cursor', cursor);
+    }
+</script>
 
 </body>
 
