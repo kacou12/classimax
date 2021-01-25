@@ -27,6 +27,7 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -119,15 +120,45 @@
                 <div class="col-lg-5 col-md-8 align-item-center">
                     <div class="border border">
                         <h3 class="bg-gray p-4">Register Now</h3>
-                        <form action="#">
+                        <form action="register" method="POST">
+                          @csrf
                             <fieldset class="p-4">
-                                <input type="email" placeholder="Email*" class="border p-3 w-100 my-2">
-                                <input type="password" placeholder="Password*" class="border p-3 w-100 my-2">
-                                <input type="password" placeholder="Confirm Password*" class="border p-3 w-100 my-2">
-                                <div class="loggedin-forgot d-inline-flex my-3">
+                              {{-- name --}}
+                                <input type="text" placeholder="Nom d'utilisateur*" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                @error('name')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+
+                                {{-- email --}}
+                                <input type="email" placeholder="Email*" name="email" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                @error('email')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+
+                                {{-- password --}}
+                                <input type="password" placeholder="Mot de passe*" name="password" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+
+                                {{-- password_confirmation --}}
+                                <input type="password" placeholder="Confirmation du mot de passe*" name="password_confirmation" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif">
+                                @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                              @enderror
+
+                                {{-- <div class="loggedin-forgot d-inline-flex my-3">
                                         <input type="checkbox" id="registering" class="mt-1">
                                         <label for="registering" class="px-2">By registering, you accept our <a class="text-primary font-weight-bold" href="terms-condition.html">Terms & Conditions</a></label>
-                                </div>
+                                </div> --}}
                                 <button type="submit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Register Now</button>
                             </fieldset>
                         </form>

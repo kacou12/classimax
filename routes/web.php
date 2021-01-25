@@ -31,4 +31,4 @@ Route::get('register', function () {
 });
 Route::get('dashboard', function () {
     return view('classimax.dashboard');
-});
+})->middleware('auth');
