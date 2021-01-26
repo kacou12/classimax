@@ -30,15 +30,12 @@ Route::get('/', function () {
 //Route::get('register', function () {
 //    return view('classimax.register');
 //});
-Route::get('dashboard', function () {
-    return view('classimax.dashboard');
-})->middleware('auth');
 
-Route::get('home', function () {
-    return view('home');
-})->middleware('auth')->name('home');
+Route::get('home', fn ()=> view('classimax.auth.dashboard'))->middleware('auth')->name('home');
 
 Route::get('logout', function(){
     Auth::logout();
     return redirect()->back();
 })->middleware('auth');
+
+Route::get('ad-listing', fn () => view('classimax.auth.ad-listing'))->middleware('auth')->name('ad-listing');

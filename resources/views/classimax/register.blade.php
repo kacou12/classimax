@@ -101,7 +101,7 @@
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="login.html">Login</a>
+								<a class="nav-link login-button" href="{{ route('login') }}">Login</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
@@ -124,7 +124,7 @@
                           @csrf
                             <fieldset class="p-4">
                               {{-- name --}}
-                                <input type="text" placeholder="Nom d'utilisateur*" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif name">
+                                <input type="text" placeholder="Nom d'utilisateur*" value="{{ old('name') }}" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif name">
                                 @error('name')
                                   <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -132,7 +132,7 @@
                                 @enderror
 
                                 {{-- email --}}
-                                <input type="email" placeholder="Email*" name="email" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif email">
+                                <input type="email" placeholder="Email*" name="email" value="{{ old('email') }}" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif email">
                                 @error('email')
                                   <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -140,7 +140,7 @@
                                 @enderror
 
                                 {{-- password --}}
-                                <input type="password" placeholder="Mot de passe*" name="password" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif password">
+                                <input type="password" placeholder="Mot de passe*" name="password" value="{{ old('password') }}" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif password">
                                 @error('password')
                                   <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -148,7 +148,7 @@
                                 @enderror
 
                                 {{-- password_confirmation --}}
-                                <input type="password" placeholder="Confirmation du mot de passe*" name="password_confirmation" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif password_confirmation">
+                                <input type="password" placeholder="Confirmation du mot de passe*" name="password_confirmation" value="{{ old('password_confirmation') }}" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif password_confirmation">
                                 @error('password')
                                   <span class="invalid-feedback mb-4" role="alert">
                                       <strong>{{ $message }}</strong>

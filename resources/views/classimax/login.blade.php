@@ -100,7 +100,7 @@
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="login.html">Login</a>
+								<a class="nav-link login-button" href="login.html"> <i class="fa fa-user"></i> Login</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
@@ -123,7 +123,7 @@
                       @csrf
                         <fieldset class="p-4">
                               {{-- name --}}
-                              <input type="text"  placeholder="Nom d'utilisateur*" name="name" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif val1">
+                              <input type="text"  placeholder="Nom d'utilisateur*" name="name" value="{{ old('name') }}" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif val1">
                               @error('name')
                                 <span class="invalid-feedback mb-4" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -131,7 +131,7 @@
                               @enderror
 
                               {{-- password --}}
-                              <input type="password" placeholder="Mot de passe*" name="password" class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif val2">
+                              <input type="password" placeholder="Mot de passe*" name="password" value="{{ old('password') }}"  class="@if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif val2">
                               @error('password')
                                 <span class="invalid-feedback mb-4" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -145,7 +145,7 @@
                             {{-- d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold --}}
                             <button type="submit" class="btn btn-primary mt-3 sendButton">Log in</button>
                             <a class="mt-3 d-block  text-primary" href="#">Forget Password?</a>
-                            <a class="mt-3 d-inline-block text-primary" href="register.html">Register Now</a>
+                            <a class="mt-3 d-inline-block text-primary" href="{{ route('register') }}">Register Now</a>
                         </fieldset>
                     </form>
                 </div>

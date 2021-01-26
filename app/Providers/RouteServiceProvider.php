@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/home';
-    public const DASHBOARD = 'welcome';
+    public const DASHBOARD = '/classimax/auth/dashboard';
 
     /**
      * The controller namespace for the application.
