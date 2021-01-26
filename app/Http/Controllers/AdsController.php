@@ -15,6 +15,7 @@ class AdsController extends Controller
     public function index()
     {
         //
+        return view('classimax.auth.dashboard');
     }
 
     /**
@@ -25,6 +26,7 @@ class AdsController extends Controller
     public function create()
     {
         //
+        return view('classimax.auth.ad-listing');
     }
 
     /**

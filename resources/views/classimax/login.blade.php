@@ -119,7 +119,7 @@
             <div class="col-lg-5 col-md-8 align-item-center">
                 <div class="border">
                     <h3 class="bg-gray p-4">Login Now</h3>
-                    <form action="login" method="POST">
+                    <form action="{{ route('login') }}" method="POST">
                       @csrf
                         <fieldset class="p-4">
                               {{-- name --}}

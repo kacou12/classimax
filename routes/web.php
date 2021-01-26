@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -38,4 +39,5 @@ Route::get('logout', function(){
     return redirect()->back();
 })->middleware('auth');
 
-Route::get('ad-listing', fn () => view('classimax.auth.ad-listing'))->middleware('auth')->name('ad-listing');
+
+Route::resource('Ads', AdsController::class)->middleware('auth');

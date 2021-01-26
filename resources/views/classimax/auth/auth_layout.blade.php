@@ -19,6 +19,8 @@
   <!-- Owl Carousel -->
   <link href="{{ asset('plugins/slick-carousel/slick/slick.css') }}" rel="stylesheet">
   <link href="{{ asset('plugins/slick-carousel/slick/slick-theme.css') }}" rel="stylesheet">
+
+
   <!-- Fancy Box -->
   <link href="{{ asset('plugins/fancybox/jquery.fancybox.pack.css') }}" rel="stylesheet">
   <link href="{{ asset('plugins/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
@@ -32,7 +34,15 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  <style>
+      .my_caroussel{
+       height: 300px;
+       border: 1px solid black;
+       width: 1000px;
+       margin-left: auto;
+       margin-right: auto;
+      }
+  </style>
 </head>
 
 <body class="body-wrapper">
@@ -101,7 +111,7 @@
                                 </li>
                                 @if (Request::is('home'))
                                     <li class="nav-item">
-                                        <a class="nav-link text-white add-button" href="{{ route('ad-listing') }}"><i class="fa fa-plus-circle"></i>Ajouter une annonce</a>
+                                        <a class="nav-link text-white add-button" href="{{ route('Ads.create') }}"><i class="fa fa-plus-circle"></i>Ajouter une annonce</a>
                                     </li>
                                 @else
                                     <li class="nav-item">
@@ -237,6 +247,10 @@
 <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places') }}"></script>
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+{{-- Own OWL CAROUSEL  --}}
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/multiple_image.js') }}"></script>
+
 </body>
 
 </html>
