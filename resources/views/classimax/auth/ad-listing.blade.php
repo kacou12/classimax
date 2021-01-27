@@ -67,16 +67,16 @@
                           </div>
                       </div>
                       <div class="my_caroussel" id="preview">
-                          {{-- <div >
+                        {{-- <div>
                             <img  width="400" height="300"  class="mr-4" src="{{ asset('images/1.jpg') }}" alt="Card image cap">
                         </div>
-                          <div>
+                        <div>
                             <img  width="150" height="300" class="mr-4" src="{{ asset('images/2.jpg') }}" alt="Card image cap">
                         </div>
-                          <div>
+                        <div>
                             <img  width="50" height="300" class="mr-4" src="{{ asset('images/3.jpg') }}" alt="Card image cap">
                         </div>
-                          <div>
+                        <div>
                             <img  width="650" height="300" class="mr-4" src="{{ asset('images/4.jpg') }}" alt="Card image cap">
                         </div> --}}
 

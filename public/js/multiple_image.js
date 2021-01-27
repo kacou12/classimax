@@ -1,8 +1,8 @@
+var i = 0;
 function previewImages() {
 
     var preview = document.querySelector('#preview');
 
-    
     if (this.files) {
       [].forEach.call(this.files, readAndPreview);
     }
@@ -17,6 +17,7 @@ function previewImages() {
       var reader = new FileReader();
       
       reader.addEventListener("load", function() {
+        i+=1;
 
         var newDiv = document.createElement("div");
         var image    = new Image();
@@ -27,9 +28,21 @@ function previewImages() {
         newDiv.appendChild(image);
         preview.appendChild(newDiv);
         
+        if(i >= 4){
+          $('.my_caroussel').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            centerMode: true,
+            variableWidth: true
+           });
+        }
+        
       });
       
       reader.readAsDataURL(file);
+
       
     }
   
@@ -38,13 +51,6 @@ function previewImages() {
   document.querySelector('.file-input').addEventListener("change", previewImages);
 
 
-
-  $('.my_caroussel').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    centerMode: true,
-    variableWidth: true
-  });
   
+
+  var prev = document.querySelector('#preview');

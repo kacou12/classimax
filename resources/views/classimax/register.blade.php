@@ -120,7 +120,7 @@
                 <div class="col-lg-5 col-md-8 align-item-center">
                     <div class="border border">
                         <h3 class="bg-gray p-4">Register Now</h3>
-                        <form action="register" method="POST">
+                        <form action="/register" method="POST">
                           @csrf
                             <fieldset class="p-4">
                               {{-- name --}}
