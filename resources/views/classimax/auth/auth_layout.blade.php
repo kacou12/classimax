@@ -12,6 +12,13 @@
   <!-- PLUGINS CSS STYLE -->
   <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Bootstrap -->
+
+
+
+
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link type="text/css" rel="stylesheet" href="{{ asset('css/image-uploader.min.css') }}">
+
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap-slider.css') }}">
   <!-- Font Awesome -->
@@ -36,7 +43,7 @@
   <![endif]-->
   <style>
       .my_caroussel{
-       height: 300px;
+       height: auto;
        border: 1px solid black;
        width: 1000px;
        margin-left: auto;
@@ -250,6 +257,34 @@
 {{-- Own OWL CAROUSEL  --}}
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/multiple_image.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/image-uploader.min.js') }}"></script>
+<script src="{{ asset('js/ckeditor.js') }}"></script>
+<script>
+ $('.input-images').imageUploader({
+    label:"Déposez ici les images de votre annonce ",
+});
+$(window).on('mouseover change',function() {
+  var up = $('.uploaded').children().length;
+  if(up == 0){
+    $('.upload-text').css('display', 'flex');
+   }else{
+    $('.upload-text').css('display', 'none');
+   }
+   console.log(up);
+});
+
+
+$('input:file').on('hover change',function() {
+  var up = $('.uploaded').children().length;
+  if(up == 0){
+    $('.upload-text').css('display', 'flex');
+   }else{
+    $('.upload-text').css('display', 'none');
+   }
+   console.log(up);
+});
+  // CKEDITOR.replace( 'description' );
+</script>
 
 </body>
 

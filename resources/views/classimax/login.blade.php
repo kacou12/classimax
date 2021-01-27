@@ -119,7 +119,7 @@
             <div class="col-lg-5 col-md-8 align-item-center">
                 <div class="border">
                     <h3 class="bg-gray p-4">Login Now</h3>
-                    <form action="/login" method="POST">
+                    <form action="login" method="POST">
                       @csrf
                         <fieldset class="p-4">
                               {{-- name --}}
@@ -269,7 +269,7 @@
 <script src="{{ asset('plugins/fancybox/jquery.fancybox.pack.js') }}"></script>
 <script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
 <!-- google map -->
-<script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
 <script>
