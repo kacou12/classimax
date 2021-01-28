@@ -10,7 +10,7 @@
                       <div class="col-lg-12">
                           <h3>Publiez votre annonce</h3>
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-lg-7">
                           <h6 class="font-weight-bold pt-4 pb-1">Titre de l'annonce:</h6>
                           <input type="text" name="title" class="border w-100 p-2 bg-white text-capitalize" placeholder="Ajouter le titre ici">
                           {{-- <h6 class="font-weight-bold pt-4 pb-1">Ad Type:</h6>
@@ -24,10 +24,50 @@
                                   <label for="business" class="py-2">Business</label>
                               </div>
                           </div> --}}
-                          <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
-                          <textarea name="description"  id="" class="border p-3 w-100" rows="7" placeholder="Decrivez votre annonce "></textarea>
+                          {{-- <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
+                          <textarea name="description"  id="" class="border p-3 w-100" rows="7" placeholder="Decrivez votre annonce "></textarea> --}}
+
+
+                          {{-- tabs with descriptions , specifications ,  --}}
+                          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active test" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">description</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Specifications</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <textarea name="description"  id="" class="border p-3 w-100" rows="7" placeholder="Decrivez votre annonce "></textarea>
+                            </div>
+
+                            <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <h3>Ajouter des specifications</h3>
+                                <div class="container essai">
+                                    <div class="row" id="p_scents">
+                                        <div class="form-group col-md-5">
+                                            <input type="text" class="col-md-12 border p-2 bg-white text-capitalize" id="Fld_Alias" placeholder="Field Alias" />
+                                        </div>
+    
+                                        <div class="form-group col-md-5">
+                                            <input type="text" class="col-md-12 border p-2 bg-white text-capitalize" id="Fld_Name" placeholder="Field Name" />
+                                        </div>
+                                        <a href="#" id="addScnt"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">13</div>
+                          </div>
                       </div>
-                      <div class="col-lg-6">
+
+
+                      {{-- Categorie --}}
+                      <div class="col-lg-5">
                           <h6 class="font-weight-bold pt-4 pb-1">Sélectionnez la catégorie de votre annonce:</h6>
                           <select name="categorie" id="inputGroupSelect" class="w-100">
                               <option value="1">Aucune categorie selectionnée </option>

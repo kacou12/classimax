@@ -1,13 +1,9 @@
+1 => Aucune categorie selectionnée 
+2 => Prestation de service
+3 => Immobilier
+4 => Mode et vêtement</option>
+5 => animaux domestiques
+6 => Autres
 
 
-prestation de service 
-
-electronique
-
-Vehicules
-
-immobilier
-
-Mode et vetement
-
-animaux domestiques
+https://codepen.io/Bhavanaditya/pen/bRVaMP

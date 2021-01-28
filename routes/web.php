@@ -32,6 +32,7 @@ Route::get('/', function () {
 //    return view('classimax.register');
 //});
 
+
 Route::get('home', fn ()=> view('classimax.auth.dashboard'))->middleware('auth')->name('home');
 
 Route::get('logout', function(){
@@ -41,3 +42,5 @@ Route::get('logout', function(){
 
 
 Route::resource('Ads', AdsController::class)->middleware('auth');
+
+Route::get('test', fn()=>view('classimax.auth.test'));

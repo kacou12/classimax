@@ -6,7 +6,7 @@ body {
   line-height: 1.5;
   font-family: "Muli", sans-serif;
 }
-input:focus {
+input:focus, textarea:focus {
   outline:none !important;
 }
 

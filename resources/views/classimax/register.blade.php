@@ -290,16 +290,16 @@
     $('.sendButton').css('cursor', 'not-allowed');
 
 
-    $(".name").focus(function(event) {
+    $(".name").on('focus change keypress keyup',function(event) {
             validateInputs();
         });
  
-    $(".password").focus(function(event) {
+    $(".password").on('focus change keypress keyup',function(event) {
         validateInputs();
     });
 
     
-    $(".password_confirmation").focus(function(event) {
+    $(".password_confirmation").on('focus change keypress keyup',function(event) {
         validateInputs();
     });
 
@@ -311,8 +311,6 @@
         var name = $(".name").val();
         var password = $(".password").val();
         var password_confirmation = $(".password_confirmation").val();
-
-
  
         if(name.length >= 3 && password.length >= 8 && password ==  password_confirmation ){          
             disableButton = false;

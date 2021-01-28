@@ -45,10 +45,42 @@
       .my_caroussel{
        height: auto;
        border: 1px solid black;
-       width: 1000px;
+       width: 97%;
        margin-left: auto;
        margin-right: auto;
       }
+      .upload-text{
+        background-color: white; 
+      }
+      .ad-post textarea {
+       min-height: 240px;
+      }
+      textarea:focus {
+        outline:none !important;
+      }
+      #addScnt{
+        border: 1px solid black; 
+        height:max-content;
+        margin-top:5px;
+        padding: 1px 5px;
+        color: white;
+        background-color: #007bff;
+        border-radius: 2px;
+      }
+      .remove{
+        border: 1px solid black; 
+        height:max-content;
+        margin-top:5px;
+        padding: 1px 5px;
+        color: white;
+        background-color: #dc3545;
+        border-radius: 2px;
+      }
+      #addScnt:hover {
+        background-color:white;
+        color: #007bff;
+      }
+      
   </style>
 </head>
 
@@ -255,37 +287,31 @@
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
 {{-- Own OWL CAROUSEL  --}}
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/multiple_image.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/image-uploader.min.js') }}"></script>
 <script src="{{ asset('js/ckeditor.js') }}"></script>
+<script src="{{ asset('js/multiple_image.js') }}"></script>
 <script>
- $('.input-images').imageUploader({
-    label:"Déposez ici les images de votre annonce ",
-});
-$(window).on('mouseover change',function() {
-  var up = $('.uploaded').children().length;
-  if(up == 0){
-    $('.upload-text').css('display', 'flex');
-   }else{
-    $('.upload-text').css('display', 'none');
-   }
-   console.log(up);
+  
+  var scntDiv = $(".essai");
+
+  $("#addScnt").click(function() {
+    scntDiv.append('<div class="row" id="p_scents">'+
+      '<div class="form-group col-md-5">'+
+          '<input type="text" class="col-md-12 border p-2 bg-white text-capitalize" id="Fld_Alias" placeholder="Field Alias" />'+
+      '</div>'+
+    
+      '<div class="form-group col-md-5">'+
+          '<input type="text" class="col-md-12 border p-2 bg-white text-capitalize" id="Fld_Name" placeholder="Field Name" />'+
+      '</div>'+
+      '<a href="#" id="remove"><i class="fa fa-trash" aria-hidden="true"></i> Remove</a>'+
+      '</div>');
+  });
+
+  $(document).on('click', '#remove',function(){
+  $(this).parent('#p_scents').remove();
 });
 
-
-$('input:file').on('hover change',function() {
-  var up = $('.uploaded').children().length;
-  if(up == 0){
-    $('.upload-text').css('display', 'flex');
-   }else{
-    $('.upload-text').css('display', 'none');
-   }
-   console.log(up);
-});
-  // CKEDITOR.replace( 'description' );
 </script>
-
 </body>
 
 </html>
