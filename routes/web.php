@@ -43,4 +43,6 @@ Route::get('logout', function(){
 
 Route::resource('Ads', AdsController::class)->middleware('auth');
 
-Route::get('test', fn()=>view('classimax.auth.test'));
+Route::get('/search-box', function () {
+    return view('searchbox');
+});

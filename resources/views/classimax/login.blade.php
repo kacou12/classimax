@@ -277,11 +277,11 @@
     $('.sendButton').css('cursor', 'not-allowed');
 
 
-    $(".val1").keydown(function(event) {
+    $(".val1").on('focus change keypress keyup',function(event) {
             validateInputs();
         });
  
-    $(".val2").keydown(function(event) {
+    $(".val2").on('focus change keypress keyup',function(event) {
         validateInputs();
     });
  
