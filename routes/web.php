@@ -43,6 +43,5 @@ Route::get('logout', function(){
 
 Route::resource('Ads', AdsController::class)->middleware('auth');
 
-Route::get('/login-form', function () {
-    return view('login-form');
-});
+Route::get('/login-form', fn() => view('livewire_login_form'))->name('livewire-login');
+Route::get('/register-form', fn()=>view("livewire_register"));

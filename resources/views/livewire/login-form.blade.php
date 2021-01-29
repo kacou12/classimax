@@ -5,6 +5,12 @@
                 <div class="col-lg-5 col-md-8 align-item-center">
                     <div class="border">
                         <h3 class="bg-gray p-4">Login Now</h3>
+
+                        @if($errors->any())
+                            
+                            <p>Verifiez vos identifiants</p>
+                            
+                        @enderror
                         <form wire:submit.prevent="login">
                             <fieldset class="p-4">
                                   {{-- name --}}
@@ -19,18 +25,17 @@
     
                                   {{-- password --}}
                                   <div class="div_password mb-2">                                      
-                                      <input type
-                                      ="password" placeholder="Mot de passe*"  wire:model="password" name="password" value="{{ old('password') }}"  class=" @if($errors->has('password'))form-control is-invalid @else border p-3 w-100 my-2 @endif val2">
-                                      @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                      @enderror
+                                    <input type="password" placeholder="Mot de passe*"  wire:model="password" name="password" value="{{ old('password') }}"  class=" @if($errors->has('password'))form-control is-invalid @else border p-3 w-100 my-2 @endif val2">
+                                    @error('password')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                    @enderror
                                   </div>
     
                                 <div class="loggedin-forgot">
-                                        <input type="checkbox" id="keep-me-logged-in">
-                                        <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
+                                    <input type="checkbox" id="keep-me-logged-in">
+                                    <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
                                 </div>
                                 {{-- d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold --}}
                                 <button type="submit" class="btn btn-primary mt-3 sendButton">Log in</button>

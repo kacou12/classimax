@@ -1,18 +1,18 @@
 <?php
 namespace App\Http\Livewire;
+
+use App\Models\User;
 use Livewire\Component;
-use Hash;
-use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginForm extends Component
 {
-    public $password, $name;
-    public $registerForm = false;
+    public $password, $name, $email;
 
     protected $rules = [
-        'name' => 'required|min:6|regex:/^[\pL\s\-]+$/u',
-        'password' => 'required|min:8|',
+        'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30|min:3',
+        'password' => 'required|min:8|max:100',
     ];
 
     public function render()
@@ -32,23 +32,9 @@ class LoginForm extends Component
         if(Auth::attempt(['name' => $this->name, 'password' => $this->password])){
             return redirect()->intended('home'); 
         }else{
-            session()->flash('error', 'email and password are wrong.');
+            session()->flash('no_log', 'nom ou mot de passe incorrect');
         }
     }
-    //public function register()
-    //{
-    //    $this->registerForm = !$this->registerForm;
-    //}
-    //public function registerStore()
-    //{
-    //    $validatedDate = $this->validate([
-    //        'name' => 'required',
-    //        'email' => 'required|email',
-    //        'password' => 'required',
-    //    ]);
-    //    $this->password = Hash::make($this->password); 
-    //    User::create(['name' => $this->name, 'email' => $this->email,'password' => $this->password]);
-    //    session()->flash('message', 'Your register successfully Go to the login page.');
-    //    $this->resetInputFields();
-    //}
+
+   
 }
