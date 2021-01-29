@@ -43,6 +43,6 @@ Route::get('logout', function(){
 
 Route::resource('Ads', AdsController::class)->middleware('auth');
 
-Route::get('/search-box', function () {
-    return view('searchbox');
+Route::get('/login-form', function () {
+    return view('login-form');
 });
