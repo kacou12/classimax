@@ -9,13 +9,14 @@ use Livewire\Component;
 
 class RegisterForm extends Component
 {
-    public $password, $name, $email;
+    public $password, $name, $email, $password_confirmation;
     public $registerForm = false;
     
     protected $rules = [
-        'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30|min:30',
-        'email' =>'required|unique:App\Models\User',
-        'password' => 'required|min:8',
+        'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30',
+        'email' =>'required|email|unique:App\Models\User|min:5',
+        'password' => 'required|min:8|confirmed|max:100',
+        // 'password_confirmation' =>'required|min:8'
     ];
 
     public function render()
@@ -34,9 +35,10 @@ class RegisterForm extends Component
         $validatedData = $this->validate();
 
         $this->password = Hash::make($this->password); 
-        User::create(['name' => $this->name, 'email' => $this->email,'password' => $this->password]);
-        session()->flash('register-message', 'Your register successfully Go to the login page.');
-
-        return redirect()->route('livewire-login');
+        if(User::create(['name' => $this->name, 'email' => $this->email,'password' => $this->password])){
+            session()->flash('success', 'Enregistrement reussi , veillez vous connecter');
+            return redirect()->route('login');
+        }
+        session()->flash('no_log', 'nom ou mot de passe incorrect');
     }
 }

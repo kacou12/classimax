@@ -8,7 +8,7 @@
 
                         @if(session()->has('no_log'))
                             <div class="alert alert-danger" role="alert">
-                                {{ session('no_log') }}
+                                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ session('no_log') }}</p>
                             </div>
                         @elseif(session()->has('success'))
                             <div class="alert alert-success" role="alert">

@@ -242,41 +242,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
-<script>
-   $('.sendButton').attr('disabled', true);
-    $('.sendButton').css('cursor', 'not-allowed');
-    $('#login_form').on('submit', function(){
-      $('.gif').css("display", 'inline-block');
-    })
-
-    $(".val1").on('focus change keypress keydown',function(event) {
-            validateInputs(event);
-        });
- 
-    $(".val2").on('focus change keypress keydown',function(event) {
-        validateInputs();
-    });
- 
-    function validateInputs(event){
-        var disableButton = true;
-        var cursor = 'not-allowed';
- 
-        var val1 = $(".val1").val();
-        var val2 = $(".val2").val();
- 
-        if(val1.length >= 3 && val2.length >= 8 ){          
-            disableButton = false;
-            cursor = "pointer";
-        }else{
-          disableButton = true;
-          cursor = 'not-allowed';
-        }
- 
-        $('.sendButton').attr('disabled', disableButton);
-        $('.sendButton').css('cursor', cursor);
-    }
-
-</script>
+<script src="{{ asset('js/form_button.js') }}"></script>
 @livewireScripts
 
 </body>

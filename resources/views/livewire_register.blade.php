@@ -33,6 +33,11 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+    .gif{
+      display: none;
+    }
+  </style>
   @livewireStyles
 
 </head>
@@ -237,6 +242,44 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+<script>
+  $('.sendButton').attr('disabled', true);
+  $('.sendButton').css('cursor', 'not-allowed');
+  $('#register_form').on('submit', function(){
+    $('.gif').css("display", 'inline-block');
+  })
+  
+  $(".name").on('focus change keypress keydown',function(event) {
+          validateInputs(event);
+  });
+  
+  $(".password").on('focus change keypress keydown',function(event) {
+      validateInputs();
+  });
+
+  $(".password_confirmation").on('focus change keypress keydown',function(event) {
+      validateInputs();
+  });
+  
+  function validateInputs(event){
+      var disableButton = true;
+      var cursor = 'not-allowed';
+  
+      var name = $(".name").val();
+      var password = $(".password").val();
+  
+      if(name.length >= 2 && password.length >= 8  && password_confirmation.length == password.length ){          
+          disableButton = false;
+          cursor = "pointer";
+      }else{
+        disableButton = true;
+        cursor = 'not-allowed';
+      }
+  
+      $('.sendButton').attr('disabled', disableButton);
+      $('.sendButton').css('cursor', cursor);
+  }
+  </script>
 @livewireScripts
 
 </body>
