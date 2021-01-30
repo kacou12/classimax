@@ -38,10 +38,12 @@ Route::get('home', fn ()=> view('classimax.auth.dashboard'))->middleware('auth')
 Route::get('logout', function(){
     Auth::logout();
     return redirect()->back();
-})->middleware('auth');
+})->middleware('auth')->name('logout');
 
-
+Route::get('test', fn()=>view('test'));
 Route::resource('Ads', AdsController::class)->middleware('auth');
 
 Route::get('/login-form', fn() => view('livewire_login_form'))->name('livewire-login');
-Route::get('/register-form', fn()=>view("livewire_register"));
+
+Route::get('/login-form', fn() => view('livewire_login_form'))->name('login');
+Route::get('/register-form', fn()=>view("livewire_register"))->name('register');

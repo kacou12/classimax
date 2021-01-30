@@ -8,7 +8,7 @@
     @livewireStyles
 </head>
 <body>
-    @livewire('search-users')
+    @livewire('login-form')
 
     @livewireScripts
 </body>

@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Hash;
 class LoginForm extends Component
 {
     public $password, $name, $email;
-    public function addTodo(){
-        return '50';
-    }
 
     protected $rules = [
         'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30|min:3',
