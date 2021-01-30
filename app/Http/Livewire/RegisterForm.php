@@ -14,7 +14,7 @@ class RegisterForm extends Component
     
     protected $rules = [
         'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30|min:30',
-        'email' =>'required|',
+        'email' =>'required|unique:App\Models\User',
         'password' => 'required|min:8',
     ];
 
