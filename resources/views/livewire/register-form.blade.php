@@ -16,6 +16,7 @@
                               <div class="div_name mb-4">
                                 <input type="text"  placeholder="Nom d'utilisateur*" wire:model="name" name="name" value="{{ old('name') }}" class=" @if($errors->has('name'))form-control is-invalid @else border p-3 w-100 my-2 @endif name">
                                 @error('name')
+                                
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
@@ -26,7 +27,7 @@
                                 <input type="email" placeholder="Email*" name="email" value="{{ old('email') }}" wire:model="email" class="@if($errors->has('email'))form-control is-invalid @else border p-3 w-100 my-2 @endif email">
                                 <div class="mb-3">
                                     @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="display: block">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                   @enderror

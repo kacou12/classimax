@@ -13,7 +13,7 @@ class RegisterForm extends Component
     public $registerForm = false;
     
     protected $rules = [
-        'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30',
+        'name' => 'required|min:2|unique:App\Models\User|regex:/^[\pL\s\-]+$/u|max:30',
         'email' =>'required|email|unique:App\Models\User|min:5',
         'password' => 'required|min:8|confirmed|max:100',
         // 'password_confirmation' =>'required|min:8'
@@ -39,6 +39,6 @@ class RegisterForm extends Component
             session()->flash('success', 'Enregistrement reussi , veillez vous connecter');
             return redirect()->route('login');
         }
-        session()->flash('no_log', 'nom ou mot de passe incorrect');
+        session()->flash('no_log', 'Veillez verifier les informations saisies');
     }
 }
