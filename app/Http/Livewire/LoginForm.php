@@ -11,7 +11,7 @@ class LoginForm extends Component
     public $password, $name, $email;
 
     protected $rules = [
-        'name' => 'required|min:2|regex:/^[\pL\s\-]+$/u|max:30|min:3',
+        'name' => 'required|min:3|regex:/^[\pL\s\-]+$/u|max:30',
         'password' => 'required|min:8|max:100',
     ];
 

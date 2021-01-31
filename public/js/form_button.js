@@ -19,7 +19,7 @@ function validateInputs(event){
     var val1 = $(".val1").val();
     var val2 = $(".val2").val();
 
-    if(val1.length >= 2 && val2.length >= 8 ){          
+    if(val1.length >= 3 && val2.length >= 8 ){          
         disableButton = false;
         cursor = "pointer";
     }else{

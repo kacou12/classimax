@@ -297,11 +297,11 @@
   $("#addScnt").click(function() {
     scntDiv.append('<div class="row" id="p_scents">'+
       '<div class="form-group col-md-5">'+
-          '<input type="text" class="col-md-12 border p-2 bg-white text-capitalize" id="Fld_Alias" placeholder="Field Alias" />'+
+          '<input type="text" class="col-md-12 border p-2 bg-white text-capitalize" name="title_specification[]" id="Fld_Alias" placeholder="titre de laspecification"/>'+
       '</div>'+
     
       '<div class="form-group col-md-5">'+
-          '<input type="text" class="col-md-12 border p-2 bg-white text-capitalize" id="Fld_Name" placeholder="Field Name" />'+
+          '<input type="text" class="col-md-12 border p-2 bg-white text-capitalize" name="value_specification[]" id="value_specification" placeholder="valeur de la specification"/>'+
       '</div>'+
       '<a href="#" id="remove"><i class="fa fa-trash" aria-hidden="true"></i> Remove</a>'+
       '</div>');
